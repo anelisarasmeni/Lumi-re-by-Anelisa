@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1.o">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -9,17 +9,16 @@
         <title>LUMI&Egrave;RE by Anelisa</title>
         <link rel="stylesheet" href="stle-fixed.css"> 
     </head>
+
     <body>
 
         <div class="main">
-
 <!--NAVIGATION BAR-->
-
             <div class="navbar">
 
                 <div class="logo">
 
-                        <img src="logo.png" alt="LUMI&Egrave;RE by Anelisa">
+                        <img src="tran-logo.png" alt="LUMI&Egrave;RE by Anelisa">
                 
                 </div>
 
@@ -34,6 +33,10 @@
                         <li><a href="#contact">CONTACT</a></li>
 
                     </ul>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
                 </div>
 
                 
@@ -87,22 +90,40 @@
 
             <!--bestsellers section-->
             <section class="bestsellers">
-                <h2>Our bestsellers</h2>
+                <h2>Our Combos</h2>
+                <pr>Mix and match your favourite candles to make your own combo</pr>
+
+
                 <div class="product-grid">
+
                     <div class="product">
-                        <img src="7.jpg" alt="combo 1">
-                        <p>Vanilla Ember</p>
+                        <a href="10.jpg" target="_blank">
+                        <img src="10.jpg" alt="combo 1"> </a>
+                        <p>Vanilla Ember</p> 
+                        <span class="price">R145</span>
                     </div>
 
                     <div class="product">
-                        <img src="15.jpg" alt="Combo 2">
+                        <a href="20.jpg" target="_blank">
+                        <img src="20.jpg" alt="Combo 2"> </a>
                         <p> Amber woods</p> 
+                        <span class="price">R95</span>
                     </div>
 
                     <div class="product">
-                        <img src="5.jpg" alt="Combo 3">
+                          <a href="5.jpg" target="_blank">
+                        <img src="5.jpg" alt="Combo 3"></a>
                         <p> Lavender calm</p>
+                        <span class="price">R235</span>
                     </div>
+
+                    <div class="product">
+                          <a href="33.jpg" target="_blank">
+                        <img src="33.jpg" alt="Combo 3"></a>
+                        <p> Lavender calm</p>
+                        <span class="price">R235</span>
+                    </div>
+
                 </div>
             </section>
 
@@ -112,29 +133,38 @@
             <div class="catalog-section" id="catalog">
                 <h2>Explore More Candles</h2>
                 <div class="catalog-grid">
+
                     <div class="catalog-item">
-                        <img src="10.jpg" alt="Vanilla Bliss">
+                        <a href="22.jpg" target="_blank">
+                        <img src="22.jpg" alt="Vanilla Bliss"> </a>
                         <p>Vanilla Bliss</p>
+                        <span class="price">R50</span>
                     </div>
 
                     <div class="catalog-item">
-                        <img src="13.jpg" alt="Citrus Grove">
+                          <a href="28.jpg" target="_blank">
+                        <img src="28.jpg" alt="Citrus Grove"> </a>
                         <p>Citrus Grove</p>
+                        <span class="price">R40</span>
                     </div>
 
                     <div class="catalog-item">
-                        <img src="12.jpg" alt="Lavender Fields">
+                        <a href="13.jpg" target="_blank"></a>
+                        <img src="12.jpg" alt="Lavender Fields"> </a>
                         <p>Lavender Fields</p>
+                        <span class="price"> R90</span>
                     </div>
 
                     <div class="catalog-item">
-                        <img src="11.jpg" alt="Evening Musk">
+                        <a href="13.jpg" target="_blank">
+                        <img src="11.jpg" alt="Evening Musk"> </a>
                         <p>Evening Musk</p>
+                        <span class="price"> R90</span>
                     </div>
 
                 </div>
             </div>
-        </div>
+        
 
         
 
@@ -147,7 +177,7 @@
                 <div class="contact-info">
                 <div>
                     <i class="fas fa-envelope icon"></i>
-                    <a href="email: lisarasmeni@gmail.com">lisarasmeni@gmail.com</a>
+                    <a href="email: lisarasmeni21@gmail.com">lisarasmeni21@gmail.com</a>
                 </div>
 
                 <div>
@@ -157,7 +187,7 @@
 
                  <div>
                     <i class="fab fa-instagram icon"></i>
-                    <a href="https://www.instagram,com/lumiere_by_?igsh=YmhzY3RtMWVucGhy" target="_blank">@lumiereby</a>
+                    <a href="https://www.instagram.com/lumiere_by_?igsh=YmhzY3RtMWVucGhy" target="_blank">@lumiereby</a>
                 </div>
 
                 <div>
@@ -183,5 +213,14 @@
         }
       </script>  
 
+      </div>
+       <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+       </script>
+
     </body>
+    
 </html>
