@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+        <title>LUMI&Egrave;RE by Anelisa</title>
+        <link rel="stylesheet" href="stle-fixed.css"> 
+    </head>
+    <body>
+
+        <div class="main">
+
+<!--NAVIGATION BAR-->
+
+            <div class="navbar">
+
+                <div class="logo">
+
+                        <img src="logo.png" alt="LUMI&Egrave;RE by Anelisa">
+                
+                </div>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+
+                        <li><a href="#about">ABOUT</a></li>
+
+                        <li><a href="#catalog">CATALOG</a></li>
+
+                        <li><a href="#contact">CONTACT</a></li>
+
+                    </ul>
+                </div>
+
+                
+                <form class="search-container" onsubmit="event.preventDefault();
+                document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });">
+                <input type="text" placeholder="Type to search" class="search-input">
+                <button class="search-btn" type="submit">SEARCH</button>
+
+                </form>
+  
+            </div>
+
+<!--WELCOME SECTION-->
+
+            <section class="welcome">
+                <div class="welcome-container">
+                    <div class="welcome-text">
+                <h1>Welcome to <br> <span>LUMI&Egrave;RE</span><br>By Anelisa</h1>
+
+<!--WELCOME TEXT AND BUTTON-->
+
+                <p class="par">Hand poured candles made to bring warmth, calm, and luxury to your space. <br> Click the button bellow to view our products.
+                     <br> </p>
+
+                     <a href="#catalog" class="cn">BROWSE PRODUCTS</a>
+
+                </div>
+
+<!--WELCOME IMAGE-->
+
+                <div class="welcome-image">
+                    <img src="16.png" alt="Candle" />
+                </div>
+
+                </div>
+                </section>
+            
+            <!--About Section-->
+            <section class="about-section" id="about">
+                <div class="about-text">
+                    <h2>Crafted with Purpose</h2>
+                    <p>Inspired by the warmth of home and the calm of nature, LUMI&Egrave;RE by Anelisa was born out of a passion for 
+                        creating peaceful, aromatic spaces. Each candle is a reflection of intentional living, hand-poured with care to elevate
+                        everyday moments. <br> At LUMI&Egrave;RE by Anelisa, each candle is hand poured with love and intention, combining minimalist design
+                        with soul-soothing aromas. Our mission is to transform everyday spaces into serene, beautiful sanctuaries.
+                    </p>
+                    <h3>Light with Purpose. Glow with Grace</h3>
+                </div>  
+            </section>
+
+
+            <!--bestsellers section-->
+            <section class="bestsellers">
+                <h2>Our bestsellers</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="7.jpg" alt="combo 1">
+                        <p>Vanilla Ember</p>
+                    </div>
+
+                    <div class="product">
+                        <img src="15.jpg" alt="Combo 2">
+                        <p> Amber woods</p> 
+                    </div>
+
+                    <div class="product">
+                        <img src="5.jpg" alt="Combo 3">
+                        <p> Lavender calm</p>
+                    </div>
+                </div>
+            </section>
+
+
+<!--CATALOG SECTION-->
+
+            <div class="catalog-section" id="catalog">
+                <h2>Explore More Candles</h2>
+                <div class="catalog-grid">
+                    <div class="catalog-item">
+                        <img src="10.jpg" alt="Vanilla Bliss">
+                        <p>Vanilla Bliss</p>
+                    </div>
+
+                    <div class="catalog-item">
+                        <img src="13.jpg" alt="Citrus Grove">
+                        <p>Citrus Grove</p>
+                    </div>
+
+                    <div class="catalog-item">
+                        <img src="12.jpg" alt="Lavender Fields">
+                        <p>Lavender Fields</p>
+                    </div>
+
+                    <div class="catalog-item">
+                        <img src="11.jpg" alt="Evening Musk">
+                        <p>Evening Musk</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+
+<!--CONTACT DETAILS-->
+
+              <section class="contact-details" id="contact">
+                <h2>Get in Touch</h2>
+                <div class="contact-info">
+                <div>
+                    <i class="fas fa-envelope icon"></i>
+                    <a href="email: lisarasmeni@gmail.com">lisarasmeni@gmail.com</a>
+                </div>
+
+                <div>
+                    <i class="fas fa-phone icon"></i>
+                    <a href="cell: +27 65 614 6206">(+27) 65 614 6207</a>
+                </div>
+
+                 <div>
+                    <i class="fab fa-instagram icon"></i>
+                    <a href="https://www.instagram,com/lumiere_by_?igsh=YmhzY3RtMWVucGhy" target="_blank">@lumiereby</a>
+                </div>
+
+                <div>
+                    <i class="fab fa-whatsapp icon"></i>
+                    <a href="https://wa.me/27656146207" target="_blank">WhatsApp</a>
+                </div>
+
+
+                </div>
+
+              </section>
+
+              <footer>
+            &copy; 2025 LUMI&Egrave;RE by Anelisa |
+                Hand-poured with love
+        </footer>
+
+      <script>
+        function scrollToCatalog(event) {
+            event.preventDefault();
+
+            document.getElementById('catalog').scrollIntoView({ behavior: 'smooth '});
+        }
+      </script>  
+
+    </body>
+</html>
