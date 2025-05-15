@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Candle Care – LUMIÈRE by Anelisa</title>
   <link rel="stylesheet" href="stle-fixed.css" />
-  <style>
+  <!--<style>
     body {
       background-color: #fffaf5;
       font-family: Georgia, serif;
@@ -58,37 +58,79 @@
       margin-top: 50px;
       font-size: 14px;
     }
-  </style>
+  </style>-->
 </head>
 <body>
 
-  <h1>Candle Care Tips</h1>
-  <p class="care-intro">
+   <div class="main">
+<!--NAVIGATION BAR-->
+            <div class="navbar">
+                
+
+                <div class="logo">
+
+                        <img href="index.html" src="tran-logo.png" alt="LUMI&Egrave;RE by Anelisa">
+                
+                </div>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+
+                        <li><a href="#about">ABOUT</a></li>
+
+                        <li><a href="catalog-modal-updated.html">CATALOG</a></li>
+
+                        <li><a href="#contact">CONTACT</a></li>
+
+                        <a href="care.html">CANDLE CARE</a>
+
+                    </ul>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+  
+            </div>
+
+
+  <section class="care-tips">
+  <h1 style="max-width: 700px; margin: 0 auto 40px; text-align: center; font-size: 2rem; color: #5e4634;">
+    Candle Care Tips</h1>
+   <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1rem; color: #5e4634;">
     Take a moment to enjoy your candle safely and get the best burn every time.
   </p>
 
   <div class="care-grid">
-    <div class="care-tip">
+    <div class="care-card">
       <h3>✂️ Trim the Wick</h3>
       <p>Keep your wick at 5mm to prevent soot and ensure a steady flame.</p>
     </div>
-    <div class="care-tip">
+    <div class="care-card">
       <h3>⏳ Burn Evenly</h3>
       <p>Let the wax melt fully across the surface on the first burn to avoid tunneling.</p>
     </div>
-    <div class="care-tip">
+    <div class="care-card">
       <h3>🕯 Don’t Burn Too Long</h3>
       <p>Limit each burn to 3–4 hours to preserve the fragrance and quality.</p>
     </div>
-    <div class="care-tip">
+    <div class="care-card">
       <h3>🌬 Extinguish with Care</h3>
       <p>Use a snuffer or gently blow it out to avoid wax splatter or smoke.</p>
     </div>
   </div>
-
+</section>
   <footer>
     &copy; 2025 LUMIÈRE by Anelisa  | Hand-poured with love— <a href="index.html" style="color: inherit;">Back to Home</a>
   </footer>
 
+  <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+       </script>
 </body>
 </html>
