@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog - LUMIÈRE by Anelisa</title>
+  <link rel="stylesheet" href="stle-fixed.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fffaf5;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 500px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .close {
+      color: #5b3b2e;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .catalog-item {
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .catalog-item img {
+      width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .catalog-item p {
+      margin-top: 10px;
+      color: #5b3b2e;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="tran-logo.png" alt="LUMIÈRE by Anelisa" /></a>
+      </div>
+    </div>
+
+
+
+    <section class="catalog" style="text-align: center; padding: 40px 20px;">
+  <h2>Our Candles</h2>
+  <img src="soft_divider.png" alt="divider" style="width: 100%;
+  max-width: 800px; margin: 20px auto; display: block;">
+
+  <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; color: #5e4634;">
+    Discover our curated selection of hand-poured candles - crafted 
+    with care, intention, and calming scents like vanilla and citrus. Whether you're 
+    gifting or indulging, these minimal and elegant candles bring warmth and Serenity to any space.
+  </p>
+
+  <div class="combo-grid">
+    <div class="combo-card">
+      <img src="22.jpg" alt="Vanilla Bliss" />
+      <div class="combo-info">
+        <h4>Vanilla Bliss</h4>
+        <p>A comforting blend of creamy vanilla and soft musk.</p>
+        <span class="scent-badge vanilla">🍦</span>
+        <span>R50</span>
+        <a class="whatsapp-btn" href="https://wa.me/27656146207?text=Hi%2C%20I%20would%20like%20to%20order%20the%20Vanilla%20Bliss%20candle" target="_blank">
+          <i class="fab fa-whatsapp"></i>Shop Now</a>
+      </div>
+    </div>
+
+    <div class="combo-card">
+      <img src="28.jpg" alt="Citrus Grove" />
+      <div class="combo-info">
+        <h4>Citrus Grove</h4>
+        <p>Bright, juicy citrus notes for a refreshing lift.</p> 
+        <span class="scent-badge lemon">🍋</span>
+        <span>R40</span>
+        <a class="whatsapp-btn" href="https://wa.me/27656146207?text=Hi%2C%20I%20would%20like%20to%20order%20the%20Citrus%20Grove%20candle" target="_blank">
+          <i class="fab fa-whatsapp"></i>Shop Now</a>
+      </div>
+    </div>
+
+    <div class="combo-card">
+      <img src="13.jpg" alt="Amber Serenity" />
+      <div class="combo-info">
+        <h4>Amber Serenity</h4>
+        <p>Earthy amber and cedarwood — grounding and comforting.</p>
+        <span class="scent-badge vanilla">🍦</span>
+        <span>R50</span>
+        <a class="whatsapp-btn" href="https://wa.me/27656146207?text=Hi%2C%20I%20would%20like%20to%20order%20the%20Amber%20Serenity%20candle" target="_blank">
+          <i class="fab fa-whatsapp"></i>Shop Now</a>
+      </div>
+    </div>
+
+    <div class="combo-card">
+      <img src="12.jpg" alt="Citrus Bloom" />
+      <div class="combo-info">
+        <h4>Citrus Bloom</h4>
+        <p>A fresh burst of citrus and neroli — energizing and bright.</p>
+        <span class="scent-badge lemon">🍋</span>
+        <span>R60</span>
+        <a class="whatsapp-btn" href="https://wa.me/27656146207?text=Hi%2C%20I%20would%20like%20to%20order%20the%20Citrus%20Bloom%20candle" target="_blank">
+          <i class="fab fa-whatsapp"></i>Shop Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <!--  <section class="catalog" style="text-align: center; padding: 40px 20px;">
+      <h2>Our Candles</h2>
+
+      <div class="catalog-item" onclick="openModal('candle1')">
+        <img src="22.jpg" alt="Candle 1" />
+        <p>Vanilla Bliss</p>
+      </div>
+
+      <div class="catalog-item" onclick="openModal('candle2')">
+        <img src="28.jpg" alt="Candle 2" />
+        <p>Citrus Grove</p>
+      </div>
+
+      <div class="catalog-item" onclick="openModal('candle3')">
+        <img src="13.jpg" alt="Candle 3" />
+        <p>Amber Serenity</p>
+      </div>
+
+      <div class="catalog-item" onclick="openModal('candle4')">
+        <img src="12.jpg" alt="Candle 4" />
+        <p>Citrus Bloom</p>
+      </div>
+    </section> -->
+
+    <!-- Modals -->
+  <!-- <div id="modal-candle1" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('candle1')">&times;</span>
+        <h2>Vanilla Bliss</h2>
+        <img src="22.jpg" alt="Lavender Calm" style="width: 100%; max-width: 300px;">
+        <p>A comforting blend of creamy vanilla and soft musk. Perfect for peaceful evenings and or winding down your space.</p>
+        <p><strong>Price: R50</strong></p>
+      </div>
+    </div>
+
+    <div id="modal-candle2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('candle2')">&times;</span>
+        <h2>Citrus Grove</h2>
+        <img src="28.jpg" alt="Rose Glow" style="width: 100%; max-width: 300px;">
+        <p>A bright and soft musk to refresh your space.</p>
+        <p><strong>Price: R40</strong></p>
+      </div>
+    </div>
+
+    <div id="modal-candle3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('candle3')">&times;</span>
+        <h2>Amber Serenity</h2>
+        <img src="13.jpg" alt="Amber Serenity" style="width: 100%; max-width: 300px;">
+        <p>Earthy amber and cedarwood — a grounding, comforting blend.</p>
+        <p><strong>Price: R50</strong></p>
+      </div>
+    </div>
+
+    <div id="modal-candle4" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('candle4')">&times;</span>
+        <h2>Citrus Bloom</h2>
+        <img src="13.jpg" alt="Citrus Bloom" style="width: 100%; max-width: 300px;">
+        <p>A fresh burst of citrus and neroli — energizing and bright.</p>
+        <p><strong>Price: R60</strong></p>
+      </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 50px;">
+      &copy; 2025 LUMIÈRE by Anelisa
+    </footer>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).style.display = 'block';
+    }
+
+    function closeModal(id) {
+      document.getElementById('modal-' + id).style.display = 'none';
+    }
+  </script> --> 
+
+</body>
+</html>
