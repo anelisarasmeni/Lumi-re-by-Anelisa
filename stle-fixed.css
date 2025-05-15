@@ -39,8 +39,23 @@ body {
 
     box-shadow: 0 20px 8px rgba(0, 0, 0, 0.05)s
 }
+@media (max-width: 768px) {
+  .navbar {
+    border-bottom: none;
+  }
+}
 
-
+.logo img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
 
 /*.search-container {
   display: flex;
@@ -486,6 +501,12 @@ html, body {
   object-fit: contain;
 }
 
+@media (max-width: 768px) {
+  .logo img {
+    height: 80px;
+  }
+}
+
 
 .hamburger {
   font-size: 26px;
@@ -544,16 +565,18 @@ html, body {
 }
 
 .combo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 20px;
   padding: 20px 0;
+  justify-items: center;
 }
 
+
 .combo-card {
+  width: 100%;
+  max-width: 220px;
   position: relative;
-  width: 220px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
