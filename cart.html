@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart - LUMIÈRE</title>
+  <link rel="stylesheet" href="stle-fixed.css" />
+</head>
+<body>
+   <div class="navbar">
+                
+
+                <div class="logo">
+
+                        <img src="tran-logo.png" alt="LUMI&Egrave;RE by Anelisa">
+                
+                </div>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+
+                        <li><a href="#about">ABOUT</a></li>
+
+                        <li><a href="catalog-modal-updated.html">CATALOG</a></li>
+
+                        <li><a href="#contact">CONTACT</a></li>
+
+                        <a href="care.html">CANDLE CARE</a>
+
+                    </ul>
+                </div>
+
+     <a href="cart.html" class="cart-icon">
+  <img src="cart-shopping-solid.svg" alt="Cart" />
+  <span id="cart-count">0</span>
+</a>
+
+
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                
+               <!-- <form class="search-container" onsubmit="event.preventDefault();
+                document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });">
+                <input type="text" placeholder="Type to search" class="search-input">
+                <button class="search-btn" type="submit">SEARCH</button>
+
+                </form> --->
+  
+            </div>
+
+
+
+  <div class="cart-container">
+    <div class="cart-header">Your Cart</div>
+    <ul class="cart-items" id="cart-items"></ul>
+    <div class="cart-total" id="cart-total">Total: R0</div>
+    <button id="clear-cart">Clear Cart</button>
+
+    <form class="checkout-form" action="https://formspree.io/f/xjkwlwob" method="POST" onsubmit="showThankYou(event)">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <textarea name="address" placeholder="Delivery Address" rows="3" required></textarea>
+      <textarea name="note" placeholder="Note (optional)" rows="2"></textarea>
+      <input type="hidden" name="orderDetails" id="orderDetails">
+      <button type="submit">Confirm Order</button>
+    </form>
+
+    <div class="pay-now" id="pay-now" style="display:none; margin-top: 20px; text-align:center;">
+      <p><strong>Order placed! You can now proceed to payment:</strong></p>
+      <a id="whatsapp-link" href="#" target="_blank" style="background:#5a3a2f;color:white;padding:10px 20px;border-radius:8px;text-decoration:none;">Pay Now via WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartList = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    let total = 0;
+
+    cartItems.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        ${item.name} - R${item.price}
+        <button class="remove-btn" data-index="${index}">Remove</button>
+      `;
+      cartList.appendChild(li);
+      total += item.price;
+    });
+
+    cartTotal.textContent = `Total: R${total}`;
+
+    document.querySelectorAll('.remove-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const index = parseInt(button.getAttribute('data-index'));
+        cartItems.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        location.reload();
+      });
+    });
+
+    document.getElementById('clear-cart').addEventListener('click', () => {
+      localStorage.removeItem('cart');
+      location.reload();
+    });
+
+    function showThankYou(e) {
+      e.preventDefault();
+      const orderInput = document.getElementById('orderDetails');
+      const details = cartItems.map(item => `- ${item.name} - R${item.price}`).join('\n') + `\nTotal: R${total}`;
+      orderInput.value = details;
+
+      fetch(e.target.action, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Thank you for your order! You can now proceed to payment.");
+          document.getElementById('pay-now').style.display = 'block';
+          const waMessage = `Hello I just placed an order on your website. Here are the details:\n\n` + cartItems.map(item => `- ${item.name} - R${item.price}`).join('\n') + `\n\nTotal: R${total}`;
+          const waLink = `https://wa.me/27656146207?text=${encodeURIComponent(waMessage)}`;
+          document.getElementById('whatsapp-link').href = waLink;
+          localStorage.removeItem("cart");
+          e.target.reset();
+        } else {
+          alert("There was a problem submitting your order. Please try again.");
+        }
+      })
+      .catch(() => {
+        alert("Something went wrong. Please try again.");
+      });
+    }
+  </script>
+
+  <script>
+  // Toggle mobile navbar menu
+  const hamburger = document.querySelector('.hamburger');
+  const menu = document.querySelector('.menu');
+
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  }
+</script>
+
+</body>
+</html>
