@@ -5,63 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Cart - LUMIÈRE</title>
   <link rel="stylesheet" href="stle-fixed.css" />
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+  </script>
 </head>
 <body>
-   <div class="navbar">
-                
 
-                <div class="logo">
-
-                        <img src="tran-logo.png" alt="LUMI&Egrave;RE by Anelisa">
-                
-                </div>
-
-                <div class="menu">
-                    <ul>
-                        <li><a href="index.html">HOME</a></li>
-
-                        <li><a href="#about">ABOUT</a></li>
-
-                        <li><a href="catalog-modal-updated.html">CATALOG</a></li>
-
-                        <li><a href="#contact">CONTACT</a></li>
-
-                        <a href="care.html">CANDLE CARE</a>
-
-                    </ul>
-                </div>
-
-     <a href="cart.html" class="cart-icon">
-  <img src="cart-shopping-solid.svg" alt="Cart" />
-  <span id="cart-count">0</span>
-</a>
-
-
-
-                <div class="hamburger" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-
-                
-               <!-- <form class="search-container" onsubmit="event.preventDefault();
-                document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });">
-                <input type="text" placeholder="Type to search" class="search-input">
-                <button class="search-btn" type="submit">SEARCH</button>
-
-                </form> --->
-  
-            </div>
-
-
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="LUMIÈRE Logo" /></a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <div class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="catalog-modal-updated.html">Catalog</a></li>
+        <li><a href="index.html#combos">Combos</a></li>
+        <li><a href="care.html">Candle Care</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="cart-container">
+     <a href="catalog-modal-updated.html" class="continue-shopping-btn">← Continue Shopping</a>
     <div class="cart-header">Your Cart</div>
+   
     <ul class="cart-items" id="cart-items"></ul>
     <div class="cart-total" id="cart-total">Total: R0</div>
     <button id="clear-cart">Clear Cart</button>
 
     <form class="checkout-form" action="https://formspree.io/f/xjkwlwob" method="POST" onsubmit="showThankYou(event)">
       <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="address" placeholder="PAXI Number and Store Point/Adresss" rows="3" required></textarea>
       <textarea name="note" placeholder="Note (optional)" rows="2"></textarea>
       <input type="hidden" name="orderDetails" id="orderDetails">
@@ -75,9 +56,11 @@
   </div>
 
   <script>
+    const deliveryFee = 60;
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const cartList = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
+
     let total = 0;
 
     cartItems.forEach((item, index) => {
@@ -90,7 +73,12 @@
       total += item.price;
     });
 
-    cartTotal.textContent = `Total: R${total}`;
+    const grandTotal = total + deliveryFee;
+    cartTotal.innerHTML = `
+      <div>Subtotal: R${total}</div>
+      <div>Delivery: R${deliveryFee}</div>
+      <strong>Total: R${grandTotal}</strong>
+    `;
 
     document.querySelectorAll('.remove-btn').forEach(button => {
       button.addEventListener('click', () => {
@@ -109,7 +97,8 @@
     function showThankYou(e) {
       e.preventDefault();
       const orderInput = document.getElementById('orderDetails');
-      const details = cartItems.map(item => `- ${item.name} - R${item.price}`).join('\n') + `\nTotal: R${total}`;
+      const details = cartItems.map(item => `- ${item.name} - R${item.price}`).join('\n') + 
+        `\n\nDelivery: R${deliveryFee}\nTotal: R${grandTotal}`;
       orderInput.value = details;
 
       fetch(e.target.action, {
@@ -121,9 +110,14 @@
         if (response.ok) {
           alert("Thank you for your order! You can now proceed to payment.");
           document.getElementById('pay-now').style.display = 'block';
-          const waMessage = `Hello I just placed an order on your website. Here are the details:\n\n` + cartItems.map(item => `- ${item.name} - R${item.price}`).join('\n') + `\n\nTotal: R${total}`;
+
+          const waMessage = `Hello I just placed an order on your website. Here are the details:\n\n` +
+            cartItems.map(item => `- ${item.name} - R${item.price}`).join('\n') +
+            `\n\nDelivery: R${deliveryFee}\nTotal: R${grandTotal}`;
+
           const waLink = `https://wa.me/27656146207?text=${encodeURIComponent(waMessage)}`;
           document.getElementById('whatsapp-link').href = waLink;
+
           localStorage.removeItem("cart");
           e.target.reset();
         } else {
@@ -135,18 +129,11 @@
       });
     }
   </script>
-
-  <script>
-  // Toggle mobile navbar menu
-  const hamburger = document.querySelector('.hamburger');
-  const menu = document.querySelector('.menu');
-
-  if (hamburger && menu) {
-    hamburger.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-  }
-</script>
-
 </body>
 </html>
+
+
+
+
+
+
