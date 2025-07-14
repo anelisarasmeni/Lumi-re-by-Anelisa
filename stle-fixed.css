@@ -1018,3 +1018,87 @@ html, body {
 
 
 
+
+
+.modal {
+  display:flex;
+        align-items:center;
+        justify-content:center;
+       }
+.modal-content{
+  margin:0;
+               width:90%;
+  max-width:500px;
+}
+ 
+display:inline-block;
+width:1em;
+text-align:center;
+
+:root {
+  --page-max: 1200px;
+  --gap: 1.25rem;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background:#fffaf6;
+  color:#5b3b2e;
+  padding-inline: var(--gap);
+}
+
+.main,
+.navbar {
+  max-width: var(--page-max);
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* Center modal on all devices */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.5);
+}
+.modal-content {
+  margin: 0;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Responsive grids */
+.combo-grid,
+.catalog-grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+}
+
+/* Maintain square image cards without CLS */
+.combo-card img,
+.catalog-item img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Hamburger – hide when large */
+@media (min-width: 769px) {
+  .hamburger { display:none; }
+  .menu { display:flex !important; }
+}
+
+/* Navbar collapses */
+@media (max-width: 768px) {
+  .navbar { flex-wrap:wrap; padding:1rem; }
+  .menu { width:100%; display:none; flex-direction:column; gap:.75rem; }
+  .menu.active { display:flex; }
+    }
+
+
+
